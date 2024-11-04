@@ -98,7 +98,7 @@ function App() {
         {/* Y-axis label */}
         <div style={{ 
           position: 'absolute', 
-          left: '-60px', 
+          left: '-100px', 
           top: '50%', 
           transform: 'rotate(-90deg) translateX(50%)',
           whiteSpace: 'nowrap',
