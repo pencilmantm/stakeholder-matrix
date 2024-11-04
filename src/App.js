@@ -10,14 +10,8 @@ function App() {
   const captureRef = React.useRef(null);
 
   const colors = [
-    '#bfdbfe', // blue
-    '#bbf7d0', // green
-    '#fecaca', // red
-    '#fed7aa', // orange
-    '#e9d5ff', // purple
-    '#fde68a', // yellow
-    '#ddd6fe', // violet
-    '#99f6e4', // teal
+    '#bfdbfe', '#bbf7d0', '#fecaca', '#fed7aa', 
+    '#e9d5ff', '#fde68a', '#ddd6fe', '#99f6e4'
   ];
 
   const addComponent = () => {
@@ -38,7 +32,25 @@ function App() {
 
   const captureScreen = async () => {
     try {
-      const canvas = await html2canvas(captureRef.current);
+      const canvas = await html2canvas(captureRef.current, {
+        backgroundColor: '#f3f4f6',
+        windowWidth: captureRef.current.scrollWidth + 200,
+        windowHeight: captureRef.current.scrollHeight + 200,
+        x: -100, // Capture area starts 100px to the left
+        y: -20,  // Capture area starts 20px above
+        width: captureRef.current.scrollWidth + 200,
+        height: captureRef.current.scrollHeight + 40,
+        logging: false,
+        onclone: (clonedDoc) => {
+          // Ensure rotated text is captured correctly
+          const element = clonedDoc.querySelector('.capture-container');
+          if (element) {
+            element.style.transform = 'none';
+            element.style.WebkitTransform = 'none';
+          }
+        }
+      });
+      
       canvas.toBlob(async (blob) => {
         await navigator.clipboard.write([
           new ClipboardItem({
@@ -48,12 +60,13 @@ function App() {
         toast.success('Screenshot copied to clipboard!');
       });
     } catch (err) {
+      console.error(err);
       toast.error('Failed to capture screenshot');
     }
   };
 
   return (
-    <div style={{ padding: '40px' }}>
+    <div className="app-container" style={{ padding: '40px' }}>
       <Toaster position="top-right" />
       
       <div style={{ marginBottom: '20px', display: 'flex', gap: '10px' }}>
@@ -90,13 +103,13 @@ function App() {
             marginLeft: 'auto'
           }}
         >
-          📸 Capture Matrix Screenshot
+          📸 Capture Matrix
         </button>
       </div>
 
-      <div style={{ position: 'relative', margin: '60px 60px 80px 60px' }} ref={captureRef}>
+      <div className="matrix-container" ref={captureRef} style={{ position: 'relative', margin: '60px 100px 80px 100px' }}>
         {/* Y-axis label */}
-        <div style={{ 
+        <div className="y-axis-label" style={{ 
           position: 'absolute', 
           left: '-100px', 
           top: '50%', 
@@ -147,7 +160,7 @@ function App() {
           borderRadius: '4px',
           backgroundColor: 'white',
         }}>
-          {/* Grid background */}
+          {/* Grid and quadrants remain the same... */}
           <div style={{
             position: 'absolute',
             inset: 0,
