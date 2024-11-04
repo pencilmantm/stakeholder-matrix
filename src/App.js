@@ -90,7 +90,7 @@ function App() {
             marginLeft: 'auto'
           }}
         >
-          📸 Capture Matrix
+          📸 Capture Matrix Screenshot
         </button>
       </div>
 
