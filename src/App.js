@@ -117,7 +117,7 @@ function App() {
           whiteSpace: 'nowrap',
           fontWeight: 'bold'
         }}>
-          Interest
+          Interest 
         </div>
         
         {/* Y-axis values */}
