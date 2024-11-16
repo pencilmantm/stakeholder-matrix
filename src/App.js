@@ -117,7 +117,7 @@ function App() {
           whiteSpace: 'nowrap',
           fontWeight: 'bold'
         }}>
-          Influence
+          Interest
         </div>
         
         {/* Y-axis values */}
@@ -135,7 +135,7 @@ function App() {
           transform: 'translateX(-50%)',
           fontWeight: 'bold'
         }}>
-          Interest
+          Influence
         </div>
 
         {/* X-axis values */}
@@ -175,8 +175,8 @@ function App() {
               position: 'relative'
             }}>
               <div className="quadrant-label">
-                Monitor
-                <div className="quadrant-description">High influence, Low interest – track but engage minimally</div>
+                Key Players
+                <div className="quadrant-description">High influence, High interest – actively engage and involve</div>
               </div>
             </div>
             <div style={{ 
@@ -184,8 +184,8 @@ function App() {
               position: 'relative'
             }}>
               <div className="quadrant-label">
-                Key Players
-                <div className="quadrant-description">High influence, High interest – actively engage and involve</div>
+                Show Consideration
+                <div className="quadrant-description">Low influence, High interest – keep informed and value their interest</div>
               </div>
             </div>
             <div style={{ 
@@ -193,14 +193,14 @@ function App() {
               position: 'relative'
             }}>
               <div className="quadrant-label">
-                Minimal Effort
-                <div className="quadrant-description">Low influence, Low interest – little engagement required</div>
+                Monitor
+                <div className="quadrant-description">High influence, Low interest – track but engage minimally</div>
               </div>
             </div>
             <div style={{ position: 'relative' }}>
               <div className="quadrant-label">
-                Show Consideration
-                <div className="quadrant-description">Low influence, high interest – keep informed and value their interest</div>
+                Minimal Effort
+                <div className="quadrant-description">Low influence, Low interest – little engagement required</div>
               </div>
             </div>
           </div>
